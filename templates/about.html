@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Deteksi YOLOv5</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background-color: #21d4fd;
+        background-image: linear-gradient(19deg, #21d4fd 0%, #b721ff 100%);
+      }
+      nav {
+        background-color: rgba(
+          31,
+          41,
+          55,
+          0.5
+        ); /* Latar belakang navbar dengan opacity 50% */
+        backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="bg-gray-800 text-white py-4 backdrop-filter backdrop-blur-sm bg-opacity-20">
+      <div class="container mx-auto flex justify-between items-center">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+          <img
+            src="static/images/drone-svgrepo-com.svg"
+            width="50"
+            height="50"
+            alt="Logo" />
+        </a>
+        <div>
+          <a href="{{ url_for('index') }}" class="px-4 hover:text-gray-400"
+            >Home</a
+          >
+          <a
+            href="{{ url_for('image_detection') }}"
+            class="px-4 hover:text-gray-400"
+            >Image Detection</a
+          >
+          <a
+            href="{{ url_for('video_detection') }}"
+            class="px-4 hover:text-gray-400"
+            >Video Detection</a
+          >
+          <a href="{{ url_for('about') }}" class="px-4 hover:text-gray-400"
+            >About</a
+          >
+        </div>
+      </div>
+    </nav>
+    <!-- Content -->
+    <div class="container mx-auto px-4 py-8">
+      <div class="flex flex-col md:flex-row items-center">
+        <!-- Image Section -->
+        <div class="md:w-1/3 mb-6 md:mb-0 md:mr-8">
+          <img
+            src="static/images/drone-svgrepo-com.svg"
+            alt="Object Detection"
+            class="rounded-lg shadow-lg object-cover w-full h-auto" />
+        </div>
+
+        <!-- Content Section -->
+        <div class="md:w-2/3 my-24">
+          <h1 class="text-3xl font-bold mb-4 text-white">
+            Tentang Web Deteksi Objek Kecil
+          </h1>
+
+          <div class="space-y-4 text-white">
+            <p>
+              Aplikasi berbasis web ini memungkinkan pengguna untuk mengunggah
+              gambar atau video untuk mendeteksi objek menggunakan model deep
+              learning. Aplikasi ini mendemonstrasikan kemampuan model YOLOv5
+              yang telah dilatih khusus untuk mendeteksi dan mengklasifikasi
+              objek dari citra drone secara real-time.
+            </p>
+
+            <h2 class="text-xl font-semibold text-white mt-4">Fitur Utama:</h2>
+            <ul class="list-disc list-inside text-white">
+              <li>
+                Deteksi objek kecil pada gambar dengan tiga model berbeda secara
+                real-time
+              </li>
+              <li>
+                Deteksi objek kecil pada video dengan tiga model berbeda secara
+                real-time
+              </li>
+              <li>Download hasil deteksi</li>
+            </ul>
+
+            <h2 class="text-xl font-semibold text-white mt-4">
+              Teknologi yang Digunakan:
+            </h2>
+            <p class="text-white">
+              Aplikasi berbasis web ini memanfaatkan teknologi deep learning
+              dengan model YOLOv5 yang dikombinasikan dengan teknik Knowledge
+              Distillation dan SAHI (Slicing Aided Hyper Inference ) untuk
+              meningkatkan akurasi deteksi.
+            </p>
+
+            <div class="bg-blue-50 border-l-4 border-purple-500 p-4 mt-4">
+              <p class="italic font-bold text-blue-700">
+                *note : hanya gunakan input berupa gambar atau video hasil
+                tangkapan udara / citra drone untuk hasil yang lebih optimal
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; Copyright MadAndra 2024</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Deteksi YOLOv5</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: rgb(63, 70, 251);
+        background: linear-gradient(
+          90deg,
+          rgba(63, 70, 251, 1) 0%,
+          rgba(70, 252, 247, 1) 100%
+        );
+      }
+      nav {
+        background-color: rgba(
+          31,
+          41,
+          55,
+          0.5
+        ); /* Latar belakang navbar dengan opacity 50% */
+        backdrop-filter: blur(10px); /* Efek blur pada latar belakang */
+      }
+    </style>
+  </head>
+  <body>
+    <nav
+      class="bg-gray-800 text-white py-4 backdrop-filter backdrop-blur-sm bg-opacity-20">
+      <div class="container mx-auto flex justify-between items-center">
+        <a class="navbar-brand" href="{{ url_for('index') }}">
+          <img
+            src="static/images/drone-svgrepo-com.svg"
+            width="50"
+            height="50"
+            alt="Logo" />
+        </a>
+        <div>
+          <a href="{{ url_for('index') }}" class="px-4 hover:text-gray-400"
+            >Home</a
+          >
+          <a
+            href="{{ url_for('image_detection') }}"
+            class="px-4 hover:text-gray-400"
+            >Image Detection</a
+          >
+          <a
+            href="{{ url_for('video_detection') }}"
+            class="px-4 hover:text-gray-400"
+            >Video Detection</a
+          >
+          <a href="{{ url_for('about') }}" class="px-4 hover:text-gray-400"
+            >About</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <h1
+      class="mt-12 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl text-white"
+      style="text-align: center">
+      Image Detection Small Object
+    </h1>
+
+    <!-- Content -->
+    <div class="container mx-auto my-8">
+      <div class="bg-white shadow-md rounded-lg p-6">
+        <div class="mb-6">
+          <form
+            method="POST"
+            enctype="multipart/form-data"
+            class="flex items-center">
+            <label for="file" class="mr-4 text-gray-700 font-medium"
+              >Choose Image:</label
+            >
+            <input
+              class="bg-gray-200 rounded-lg px-4 py-2 flex-1"
+              type="file"
+              id="file"
+              name="file"
+              accept="image/*"
+              required />
+            <button
+              type="submit"
+              class="bg-blue-500 hover:bg-blue-600 text-white font-medium px-4 py-2 rounded-lg ml-4">
+              Detect Objects
+            </button>
+          </form>
+        </div>
+        {% if img_yolov5s %}
+        <div class="grid grid-cols-3 gap-4">
+          <div>
+            <h3 class="text-gray-800 font-medium mb-2">YOLOv5s Detection</h3>
+            <img
+              src="data:image/jpeg;base64,{{ img_yolov5s }}"
+              class="w-full rounded-lg" />
+            <a
+              href="{{ url_for('download_image', filename=filename_yolov5s) }}"
+              class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-center transition duration-300 ease-in-out">
+              Download YOLOv5s Image Result
+            </a>
+          </div>
+          <div>
+            <h3 class="text-gray-800 font-medium mb-2">YOLOv5KD Detection</h3>
+            <img
+              src="data:image/jpeg;base64,{{ img_yolov5kd }}"
+              class="w-full rounded-lg" />
+            <a
+              href="{{ url_for('download_image', filename=filename_yolov5kd) }}"
+              class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-center transition duration-300 ease-in-out">
+              Download YOLOv5KD Image Result
+            </a>
+          </div>
+          <div>
+            <h3 class="text-gray-800 font-medium mb-2">SAHI Detection</h3>
+            <img
+              src="data:image/jpeg;base64,{{ img_sahi }}"
+              class="w-full rounded-lg" />
+            <a
+              href="{{ url_for('download_image', filename=filename_sahi) }}"
+              class="block w-full bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded text-center transition duration-300 ease-in-out">
+              Download SAHI Image Result
+            </a>
+          </div>
+        </div>
+        {% endif %}
+        <div class="mt-6">
+          <a
+            href="{{ url_for('index') }}"
+            class="bg-gray-400 hover:bg-gray-500 text-white font-medium px-4 py-2 rounded-lg">
+            Back to Home
+          </a>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; Copyright MadAndra 2024</p>
+    </footer>
+  </body>
+</html>

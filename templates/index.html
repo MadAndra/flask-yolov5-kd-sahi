@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Deteksi YOLOv5</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      nav {
+        background-color: rgba(
+          31,
+          41,
+          55,
+          0.5
+        ); /* Latar belakang navbar dengan opacity 50% */
+        backdrop-filter: blur(100px); /* Efek blur pada latar belakang */
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav
+        class="bg-gray-800 text-white py-4 backdrop-filter backdrop-blur-sm bg-opacity-10">
+        <div class="container mx-auto flex justify-between items-center">
+          <a class="navbar-brand" href="{{ url_for('index') }}">
+            <img
+              src="static/images/drone-svgrepo-com.svg"
+              width="50"
+              height="50"
+              alt="Logo" />
+          </a>
+          <div>
+            <a href="{{ url_for('index') }}" class="px-4 hover:text-gray-400"
+              >Home</a
+            >
+            <a
+              href="{{ url_for('image_detection') }}"
+              class="px-4 hover:text-gray-400"
+              >Image Detection</a
+            >
+            <a
+              href="{{ url_for('video_detection') }}"
+              class="px-4 hover:text-gray-400"
+              >Video Detection</a
+            >
+            <a href="{{ url_for('about') }}" class="px-4 hover:text-gray-400"
+              >About</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <h1
+      class="mb-4 main-heading text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
+      YOLOv5 Small Object Detection
+    </h1>
+
+    <div class="split-container">
+      <div class="split-pane image-side">
+        <div class="split-pane-content">
+          <div
+            class="cursor-pointer group relative flex flex-col my-4 bg-white shadow-sm border border-slate-200 rounded-lg w-96 hover:shadow-[10px_20px_50px_0px_#ffffff] transition-shadow duration-300">
+            <div class="p-4">
+              <h6 class="mb-4 mt-4 text-slate-800 text-2xl font-bold">
+                Image Detection
+              </h6>
+              <p class="text-slate-600 leading-normal font-light">
+                Detect objects in static images using multiple models
+              </p>
+            </div>
+            <div class="px-4 pb-4 pt-0 mt-2 mb-4">
+              <a
+                href="{{ url_for('image_detection') }}"
+                class="btn btn-grad-image font-bold">
+                Start Image Detection
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="split-pane video-side">
+        <div class="split-pane-content">
+          <div
+            class="cursor-pointer group relative flex flex-col my-4 bg-white shadow-sm border border-slate-200 rounded-lg w-96 hover:shadow-[10px_20px_50px_0px_#ffffff] transition-shadow duration-300">
+            <div class="p-4">
+              <h6 class="mb-4 mt-4 text-slate-800 text-2xl font-bold">
+                Video Detection
+              </h6>
+              <p class="text-slate-600 leading-normal font-light">
+                Real-time object detection in video streams using multiple
+                models
+              </p>
+            </div>
+            <div class="px-4 pb-4 pt-0 mt-2 mb-4">
+              <a
+                href="{{ url_for('video_detection') }}"
+                class="btn btn-grad-video font-bold">
+                Start Video Detection
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>&copy; Copyright MadAndra 2024</p>
+    </footer>
+  </body>
+</html>
