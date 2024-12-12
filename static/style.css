@@ -1,0 +1,173 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  font-family: "Poppins";
+}
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 2; /* Memastikan header berada di atas konten */
+}
+.main-heading {
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  padding-top: 10%; /* Sesuaikan dengan tinggi navbar */
+  color: black;
+  z-index: 1; /* Memastikan heading berada di bawah header */
+}
+
+footer {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+.split-container {
+  display: flex;
+  height: 100vh;
+}
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  padding: 15px 0;
+  transition: background-color 0.3s ease;
+}
+.navbar:hover {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+.navbar-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 100vw;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.navbar-logo {
+  margin-left: 5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+}
+.navbar-links a {
+  color: white;
+  margin-left: 20px;
+  margin-right: 5rem;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.navbar-links a:hover {
+  color: #cccccc;
+}
+
+.split-pane {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgb(0, 0, 0);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+.image-side {
+  background-image: url("images/Artboardkiri.png");
+}
+.video-side {
+  background-image: url("images/Artboardkanan.png");
+}
+.split-pane-content {
+  text-align: center;
+}
+/* .btn {
+        color: black;
+        border: 2px solid rgb(0, 0, 0);
+        border-radius: 10px;
+        padding: 10px 20px;
+        font-weight: bold;
+        transition: all 0.3s ease;
+      } */
+
+.btn-grad-image {
+  background-image: linear-gradient(
+    to right,
+    #f09819 0%,
+    #edde5d 51%,
+    #f09819 100%
+  );
+}
+.btn-grad-image {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad-image:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.btn-grad-video {
+  background-image: linear-gradient(
+    to right,
+    #1a2980 0%,
+    #26d0ce 51%,
+    #1a2980 100%
+  );
+}
+.btn-grad-video {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 200% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad-video:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+/* .image-side .btn:hover {
+        color: orange;
+      }
+      .video-side .btn:hover {
+        color: blue;
+      } */
+@media (max-width: 768px) {
+  .split-container {
+    flex-direction: column;
+  }
+  .split-pane {
+    height: 50vh;
+  }
+  .navbar-links {
+    display: none; /* Hide links on mobile for simplicity */
+  }
+}
