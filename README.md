@@ -1,1 +1,1 @@
-# flask-yolov5-kd-sahi
+# Small Object Detection Web App using YOLOv5 and SAHI
